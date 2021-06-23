@@ -1,0 +1,57 @@
+<section fxLayout="column" fxFlexAlign="stretch">
+  <div fxFlexAlign="center">
+    <p>Welcome to Hinawi Training Application</p>
+  </div>
+
+  <p>In this application we are going learn about:</p>
+
+  <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+    <mat-tab label="Purchasing & Inventory Training">
+      <p>Purchasing & Inventory Training</p>
+
+      <div class="content">
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+          <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let video of videos">
+            <mat-card class="mat-elevation-z4" >
+              <mat-card-header>
+                <mat-card-title>{{video.title}}</mat-card-title>
+              </mat-card-header>
+              <!--<img mat-card-image src="https://hinawi-thumbnails.s3.amazonaws.com/PurchasingDepTraining01-192x108-00011.png">-->
+              <div fxLayout="column" fxFlexFill>
+                <!--<iframe [src]="video | safePipe"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+
+                <video fxFlexFill controls poster="https://hinawi-training-videos.s3.ca-central-1.amazonaws.com/hinawi-erp-thumbnail.jpeg">
+                <source [src]="video.videoUrl | safePipe" type='video/mp4'  />
+              </video>
+              </div>
+              <mat-card-content>
+                <p>
+                  {{video.description}}
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+
+
+      <!--<video id="example_video_1" width="420" height="440" controls controlsList="nodownload"-->
+             <!--controls preload="auto" width="1600" height="900"-->
+             <!--data-setup='{"example_option":true}'>-->
+        <!--<source src="https://hinawi-training-videos.s3.ca-central-1.amazonaws.com/PurchasingDepTraining01.mp4" type='video/mp4' />-->
+      <!--</video>-->
+
+
+    </mat-tab>
+    <mat-tab label="Accounting Training">
+      <p>We will consume our .NET Core application. Basically, we will create complete CRUD client app.</p>
+    </mat-tab>
+    <!--<mat-tab label="Fully responsive navigation menu">-->
+      <!--<p>By using material components, we are going to create fully responsive navigation menu, with its side-bar as well.</p>-->
+    <!--</mat-tab>-->
+  </mat-tab-group>
+</section>
