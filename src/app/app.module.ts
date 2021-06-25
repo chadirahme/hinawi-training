@@ -14,6 +14,18 @@ import { SafePipePipe } from './safe-pipe.pipe';
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import { RegisterComponent } from './register/register.component';
+import Amplify, { Auth } from 'aws-amplify';
+
+Amplify.configure({
+  Auth:{
+    mandatorySignIn:true,
+    region: 'us-east-1',
+    userPoolId: 'userPoolId',
+    userPoolWebClientId: 'userPoolWebClientId',
+    authenticationFlowType:'USER_PASSWORD_AUTH'
+  }
+
+});
 
 @NgModule({
   declarations: [

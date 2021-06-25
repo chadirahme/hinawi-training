@@ -2,21 +2,26 @@
 
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>Log in</mat-card-title>
+      <mat-card-title>Log In</mat-card-title>
     </mat-card-header>
 
-    <form class="example-form">
+    <form class="example-form" [formGroup]="loginForm">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username">
+          <!--<input matInput placeholder="Username">-->
+          <input matInput type="email" name="email" formControlName="email" required placeholder="Enter your email">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password">
+          <!--<input matInput placeholder="Password">-->
+          <input matInput type="password" name="password" formControlName="password" required id="password"
+                 placeholder="Enter your password">
+
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="loginWithCognito()">Log In</button>
     </form>
+    <p class="text-dark mb-0">Not a member? <a href="/register" class="text-primary ml-1">Sign Up now</a></p>
   </mat-card>
 
 </div>
