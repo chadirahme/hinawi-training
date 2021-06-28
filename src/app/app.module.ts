@@ -15,12 +15,14 @@ import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import { RegisterComponent } from './register/register.component';
 import Amplify, { Auth } from 'aws-amplify';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {AlertComponent} from "./_components/alert/alert.component";
 
 Amplify.configure({
   Auth:{
     mandatorySignIn:true,
     region: 'us-east-1',
-    userPoolId: 'userPoolId',
+    userPoolId: 'poolid',
     userPoolWebClientId: 'userPoolWebClientId',
     authenticationFlowType:'USER_PASSWORD_AUTH'
   }
@@ -37,6 +39,8 @@ Amplify.configure({
     SafePipePipe,
     LoginComponent,
     RegisterComponent,
+    DashboardComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
